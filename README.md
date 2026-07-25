@@ -104,10 +104,18 @@ Computer Vision • Visual SLAM • MLDL Ops • Deep Learning
 
 ---
 
----
+
 
 ### 🤝 Connect with me
 <p align="center">
 <a href="https://www.linkedin.com/in/aditya-yadav-646891215/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Aditya Yadav LinkedIn" height="40" width="50" /></a>
 <a href="https://leetcode.com/u/Anonymous_Light/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="LeetCode" height="40" width="50" /></a>
+</p>
+
+---
+
+<h3 align="center">💭 Quote</h3>
+
+<p align="center">
+  <i>"Turning ideas into intelligent systems through research and code."</i>
 </p>
