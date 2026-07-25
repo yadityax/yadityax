@@ -50,7 +50,7 @@ Computer Vision • Visual SLAM • MLDL Ops • Deep Learning
 ### 🔥 My GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=yadityax&theme=radical&hide_border=true" alt="yadityax" />
+  <img src="https://streak-stats.demolab.com?user=yadityax&theme=radical&hide_border=true" alt="GitHub Streak" />
 </p>
 
 ---
