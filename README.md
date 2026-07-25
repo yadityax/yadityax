@@ -114,7 +114,7 @@ Computer Vision • Visual SLAM • MLDL Ops • Deep Learning
 
 ---
 
-<h3 align="center">💭 Quote</h3>
+<h3 align="center"></h3>
 
 <p align="center">
   <i>"Turning ideas into intelligent systems through research and code."</i>
