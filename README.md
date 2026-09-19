@@ -57,6 +57,25 @@ Computer Vision • Visual SLAM • MLDL Ops • Deep Learning
 
 ## 💻 Personal Projects
 
+# ResearchCopilot: Retrieval-Augmented Research Assistant with Adaptive Memory
+
+MLOps course project. [GitHub](https://github.com/yadityax/ResearchCopilot) | [Live Demo](https://huggingface.co/spaces/m25csa001/ResearchCopilot)
+
+A FastAPI backend for retrieval-augmented Q&A over research papers, with a Gradio frontend deployed on Hugging Face Spaces.
+
+## Features
+
+- **Ingestion**: pulls papers from arXiv, Semantic Scholar and uploaded PDFs (PyMuPDF with a pdfplumber fallback, section and equation detection). Pretrained MiniLM-L6-v2 embeddings are stored in ChromaDB.
+- **Generation**: answers are produced by Qwen 3.5 (35B) served locally through Ollama, with source citations.
+- **Retrieval**: LLM query rewriting uses conversation history to resolve short follow-ups. Named papers missing from the store are auto-ingested, and paper-specific and general searches are merged. Long answers and reports are generated across multiple continuation passes.
+- **Adaptive memory**: conversation history is stored in DynamoDB with a semantic copy in ChromaDB. Retrieval is re-ranked with exponential interest decay (lambda = 0.05, about a 14-day half-life), and an explicit "forget topic" endpoint deletes semantically matching memories.
+- **MLOps**: GitHub Actions CI (flake8 and 61 pytest tests) and CD that builds a Docker image, pushes it to DockerHub and deploys to a Kubernetes cluster with a smoke test, behind an autoscaler running 2-10 pods. Monitoring via Prometheus, Grafana and MLflow.
+
+**Tech Stack:** FastAPI, Ollama (Qwen 3.5), sentence-transformers, ChromaDB, DynamoDB, PyMuPDF, Docker, Kubernetes, GitHub Actions, Prometheus, Grafana, MLflow, Gradio, Hugging Face Spaces
+
+
+---
+
 ### 🖼️ Deep Image Matting with Searched Lightweight Backbones
 **Computer Vision Course Project** | [GitHub](https://github.com/yadityax/Deep-Image-Matting-using-NAS) | [Live Demo](https://huggingface.co/spaces/m25csa001/matting-demo)
 
@@ -72,17 +91,6 @@ Computer Vision • Visual SLAM • MLDL Ops • Deep Learning
 - MobileNetV2: SAD 6.17 with only 2.5M parameters and 7.5 GFLOPs
 
 **Tech Stack:** PyTorch, torchvision, OpenCV, NumPy, SciPy, ONNX, ONNX Runtime Web, Gradio, Hugging Face Spaces, fvcore, Matplotlib
-
----
-
-### 🚀 ResearchCopilot – Production-Grade AI Research Assistant
-**MLOps Course Project** 
-
-- Built a production-ready **Retrieval-Augmented Generation (RAG)** research assistant supporting **arXiv** and **Semantic Scholar** paper discovery.
-- Developed a **FastAPI** backend with a **Streamlit** frontend and **ChromaDB** vector database, powered by **Qwen 3.5 (Ollama)** for local LLM inference.
-- Implemented an end-to-end MLOps pipeline with **Docker Compose**, **MLflow** experiment tracking, **GitHub Actions** CI/CD, and **Kubernetes** manifests for scalable deployment.
-
-**Tech Stack:** FastAPI, Streamlit, ChromaDB, PyTorch, Ollama, MLflow, Docker, GitHub Actions, Kubernetes, DVC
 
 ---
 ### 🛒 Market Basket Analysis
