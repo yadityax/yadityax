@@ -57,6 +57,24 @@ Computer Vision • Visual SLAM • MLDL Ops • Deep Learning
 
 ## 💻 Personal Projects
 
+### 🖼️ Deep Image Matting with Searched Lightweight Backbones
+**Computer Vision Course Project** | [GitHub](https://github.com/yadityax/Deep-Image-Matting-using-NAS) | [Live Demo](https://huggingface.co/spaces/m25csa001/matting-demo)
+
+- Reimplemented **Deep Image Matting** (Xu et al., CVPR 2017) in **PyTorch**: a **VGG-16** encoder-decoder with max-pool unpooling plus a refinement network, trained on the real-image **AM-2k** dataset. The result was checked against the published baseline (SAD 6.4–6.5 vs 6.82).
+- Replaced the VGG-16 encoder with lightweight backbones (**MobileNetV2/V3-Small, EfficientNet-B0, ShuffleNetV2**) using a **U-Net-style decoder**. Candidates were ranked by a fast **proxy-training search** on a holdout set, and the top two were fully trained.
+- Built the full evaluation stack: **SAD, MSE, MAD, Gradient and Connectivity** errors following GCA-Matting, **FLOPs/params/latency** benchmarking, a **Pareto** analysis, and paired **bootstrap** confidence intervals.
+- Exported the model to **ONNX** and deployed a serverless, in-browser demo with **ONNX Runtime Web** on **Hugging Face Spaces**. Images never leave the browser.
+
+**Results (AM-2k test set, 200 images, native resolution)**
+- EfficientNet-B0: **SAD 5.76**, 11.8% lower than the VGG-16 baseline (6.53)
+- **30× fewer parameters** (4.3M vs 130.5M) and **23× fewer FLOPs** (8.0 vs 181.5 GFLOPs at 512×512)
+- **6× lower CPU latency** on 2 threads (198 ms vs 1261 ms)
+- MobileNetV2: SAD 6.17 with only 2.5M parameters and 7.5 GFLOPs
+
+**Tech Stack:** PyTorch, torchvision, OpenCV, NumPy, SciPy, ONNX, ONNX Runtime Web, Gradio, Hugging Face Spaces, fvcore, Matplotlib
+
+---
+
 ### 🚀 ResearchCopilot – Production-Grade AI Research Assistant
 **MLOps Course Project** 
 
@@ -102,7 +120,6 @@ Computer Vision • Visual SLAM • MLDL Ops • Deep Learning
 
 **Tech Stack:** TensorFlow, Keras, FaceNet, MTCNN, OpenCV, NumPy, Scikit-learn
 
----
 
 
 
