@@ -93,6 +93,25 @@ A FastAPI backend for retrieval-augmented Q&A over research papers, with a Gradi
 **Tech Stack:** PyTorch, torchvision, OpenCV, NumPy, SciPy, ONNX, ONNX Runtime Web, Gradio, Hugging Face Spaces, fvcore, Matplotlib
 
 ---
+
+### 🛡️ Agentic Code Security Reviewer: Autonomous PR Security Review with Verified Auto-Fix
+**Personal Project** | [GitHub](https://github.com/yadityax/Agentic-Code-Security-Reviewer)
+
+- Built an autonomous **GitHub pull-request security reviewer**: a **FastAPI** webhook feeds a **LangGraph** workflow that orchestrates **Semgrep, CodeQL, Gitleaks, Trivy and Syft** in network-isolated **Docker** containers. LLM agents reach the tools only through a least-privilege, audited **MCP** server.
+- An **LLM analyst** triages correlated findings and must cite real line numbers as evidence. A discovery pass finds logic flaws that scanners cannot see, such as missing access checks and weak token randomness.
+- Designed a **verified-remediation loop**: guardrailed patch, then build, the project's tests (sandboxed, no network), security rescan and up to 3 retries. It ends in a **human-approved** fix PR on a restricted branch and never merges automatically.
+- Hardened and shipped it: secret redaction, HMAC-verified webhooks, an audit trail in **PostgreSQL**, a **React/TypeScript** dashboard, **Docker Compose** deployment, **Prometheus/Grafana/OpenTelemetry** config, and 130+ tests including sandbox-isolation tests.
+- Built a **28-case benchmark** (12 held-out cases, independent repeats, hidden exploit tests as an oracle) comparing LLM-only, scanner-only and agentic systems.
+
+**Results (held-out split, synthetic benchmark)**
+- False alarms on safe code: **25% → 0%** after LLM triage, with no true findings lost
+- F1 **0.86**, or **0.94** with LLM discovery, vs 0.75 scanner-only and 0.81 LLM-only
+- **67%** of confirmed findings fixed and verified automatically, and a hidden exploit test confirmed 3 of the 4 fixes it could check
+- About **20 s** and **$0.0001** per review
+
+**Tech Stack:** Python, FastAPI, LangGraph, MCP, Semgrep, CodeQL, Gitleaks, Trivy, Syft, PostgreSQL, Redis, Docker, React, TypeScript, Tailwind, Prometheus, Grafana, OpenTelemetry, pytest, Groq (gpt-oss)
+
+---
 ### 🛒 Market Basket Analysis
 **ML Course Project**
 - Built a recommendation system using **Apriori** and **FP-Growth** algorithms to discover association rules from retail transactions.
